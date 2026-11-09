@@ -21,9 +21,9 @@ Add project spellings to `.cspell/words.txt`, one per line in alphabetical order
 ## Verification
 
 ```bash
+nix flake check --all-systems
 nix develop -c run-hooks
 nix develop -c pnpm test
-nix flake check --all-systems
 ```
 
 ## Releases
