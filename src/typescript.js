@@ -13,10 +13,7 @@ export default defineConfig({
     },
   },
   rules: {
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
-    ],
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-unused-vars': ['error', unusedVarsOptions],
     '@typescript-eslint/require-await': 'off',
     '@typescript-eslint/restrict-template-expressions': [

@@ -1,8 +1,10 @@
-import { Shape } from './shape.js';
+import { type Circle, Shape, unitCircle } from './shape.js';
 
 export function describe(shape: Shape, label: string | undefined, verbose: boolean): string {
   const unused = 0;
-  let text = label!;
+  const fallback: Circle = unitCircle;
+  let text = label ?? fallback.kind;
+  text += label!;
   text += ` verbose: ${verbose}`;
   switch (shape.kind) {
     case 'circle':

@@ -11,8 +11,9 @@ export async function area(shape: Shape, _scale: number): Promise<number> {
 
 export function describe(shape: Shape): string {
   const [_first, second] = shape.kind.split('');
+  const { kind, ...rest } = shape;
   try {
-    return `${shape.kind} with ${second} and ${area.length} parameters`;
+    return `${shape.kind} with ${second}, ${Object.keys(rest).length} fields, and ${area.length} parameters`;
   } catch (_error) {
     return shape.kind;
   }

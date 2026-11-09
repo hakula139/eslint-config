@@ -12,12 +12,12 @@ export default defineConfig([
       perfectionist,
     },
     rules: {
-      'curly': ['error', 'all'],
-      'eqeqeq': ['error', 'always'],
+      'curly': 'error',
+      'eqeqeq': 'error',
       'no-throw-literal': 'error',
       'no-unused-vars': ['error', unusedVarsOptions],
       'no-var': 'error',
-      'object-shorthand': ['error', 'always'],
+      'object-shorthand': 'error',
       'prefer-const': 'error',
       'perfectionist/sort-imports': [
         'error',

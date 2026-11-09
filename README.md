@@ -3,34 +3,34 @@
 [![CI](https://github.com/hakula139/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/hakula139/eslint-config/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Shared ESLint flat configs for Hakula's JavaScript and TypeScript repositories. Each preset is a config array to compose with ESLint's `defineConfig`, and Prettier owns formatting, so no preset sets a stylistic rule.
+Shared ESLint flat configs for Hakula's JavaScript and TypeScript repositories. Each preset is a config array to compose with ESLint's `defineConfig`, and Prettier owns formatting, so no preset sets a formatting rule.
 
 ## Presets
 
-| Import                                | Files                   | Contents                                                                                                   |
-| ------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `@hakula139/eslint-config`            | Every file ESLint lints | `@eslint/js` recommended, strict equality, braces, `const`, no `var`, object shorthand, sorted imports     |
-| `@hakula139/eslint-config/typescript` | `**/*.{ts,tsx,mts,cts}` | typescript-eslint's `strictTypeChecked`, separate type imports, exhaustive `switch`, number-only templates |
+| Import                                | Files                   | Contents                                                                                                                   |
+| ------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `@hakula139/eslint-config`            | Every file ESLint lints | `@eslint/js` recommended, strict equality, braces, `const`, no `var`, `no-throw-literal`, object shorthand, sorted imports |
+| `@hakula139/eslint-config/typescript` | `**/*.{ts,tsx,mts,cts}` | typescript-eslint's `strictTypeChecked`, separate type imports, exhaustive `switch`, number-only templates                 |
 
-Both presets ignore an unused binding whose name starts with `_`. The TypeScript preset turns off `@typescript-eslint/require-await`, so an `async` function can implement an interface without awaiting.
+Both presets ignore an unused binding whose name starts with `_`, and a property destructured beside a rest element. The TypeScript preset turns off `@typescript-eslint/require-await`, so an `async` function can implement an interface without awaiting.
 
 ## Installation
 
-Install ESLint 10 or later beside the base preset:
+Install ESLint 10 or later and `globals` beside the base preset:
 
 ```bash
-pnpm add -D @hakula139/eslint-config eslint
+pnpm add -D @hakula139/eslint-config eslint globals
 ```
 
-The TypeScript preset also needs typescript-eslint 8 and TypeScript:
+The TypeScript preset also needs typescript-eslint 8.56 or later and TypeScript 6:
 
 ```bash
-pnpm add -D typescript typescript-eslint
+pnpm add -D typescript@^6 typescript-eslint
 ```
 
 ## Usage
 
-List the presets first in `eslint.config.js`, followed by the project's own globals, rules, and ignores:
+List `base`, then `typescript`, then the project's own globals, rules, and ignores in `eslint.config.js`:
 
 ```js
 import base from '@hakula139/eslint-config';
@@ -76,13 +76,6 @@ export default defineConfig([
 Any release that can make a passing project fail its lint is major, so minor and patch updates can merge without review. [RELEASING.md](RELEASING.md) defines the policy.
 
 ## Development
-
-```bash
-nix develop
-pnpm install
-pnpm test
-nix flake check
-```
 
 The tests lint the fixtures under `test/fixtures/` with each preset and compare the reported rules. See [AGENTS.md](AGENTS.md) for contributor conventions.
 

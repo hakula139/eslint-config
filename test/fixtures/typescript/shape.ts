@@ -9,3 +9,5 @@ export interface Square {
 }
 
 export type Shape = Circle | Square;
+
+export const unitCircle: Circle = { kind: 'circle', radius: 1 };

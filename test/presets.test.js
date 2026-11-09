@@ -42,6 +42,7 @@ const cases = [
       '@typescript-eslint/only-throw-error',
       '@typescript-eslint/restrict-template-expressions',
       '@typescript-eslint/switch-exhaustiveness-check',
+      'perfectionist/sort-named-imports',
     ],
   },
   {
