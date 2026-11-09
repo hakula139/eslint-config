@@ -1,0 +1,58 @@
+{
+  "name": "@hakula139/eslint-config",
+  "version": "0.0.0",
+  "description": "Shared ESLint flat configs for JavaScript and TypeScript",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakula139/eslint-config.git"
+  },
+  "homepage": "https://github.com/hakula139/eslint-config",
+  "bugs": {
+    "url": "https://github.com/hakula139/eslint-config/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./typescript": "./src/typescript.js"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "eslint": ">=10.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript-eslint": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.0",
+    "eslint-plugin-perfectionist": "^5.0.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^12.0.0",
+      "onFail": "error"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node --test 'test/*.test.js'"
+  },
+  "devDependencies": {
+    "eslint": "^10.14.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}
