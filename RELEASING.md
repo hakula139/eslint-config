@@ -26,9 +26,11 @@ nix run github:hakula139/devkit/v2#changelog -- vX.Y.Z
 The `tag.yml` workflow runs on the pushed tag:
 
 1. It checks that the tag matches `package.json`'s version and waits for CI to pass on the tagged commit.
-2. It packs the package with pnpm and publishes the tarball with `npm publish` through npm's GitHub OIDC trusted publisher, which attaches a provenance attestation. Stable versions use `latest`, and prereleases use `next`.
+2. It runs `pnpm publish --provenance` through npm's GitHub OIDC trusted publisher, which attaches a provenance attestation. Stable versions use `latest`, and prereleases use `next`.
 3. It publishes the tag's `CHANGELOG.md` section as the GitHub Release.
 
 The trusted publisher for `@hakula139/eslint-config` allows `npm publish` from `hakula139/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
+
+Run npm commands such as `npm trust` and `npm unpublish` outside the checkout, since npm refuses to run in a project whose `devEngines` names pnpm.
 
 [release-skill]: https://github.com/hakula139/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md

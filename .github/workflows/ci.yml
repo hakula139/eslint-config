@@ -44,6 +44,13 @@ jobs:
       - name: Test
         run: nix develop -c pnpm test
 
+      - name: Dry-run publish
+        run: |
+          nix develop -c pnpm publish \
+            --dry-run \
+            --no-git-checks \
+            --tag latest
+
   result:
     name: CI Result
     # A skipped required check passes, so the gate must run after failures too.

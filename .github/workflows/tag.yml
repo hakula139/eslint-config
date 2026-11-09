@@ -48,21 +48,17 @@ jobs:
       - name: Set up Nix
         uses: hakula139/devkit/.github/actions/setup-nix@v2
 
-      - name: Pack package
-        run: |
-          nix develop -c pnpm pack \
-            --pack-destination "$RUNNER_TEMP/package"
-
-      # npm refuses to run inside a project whose `devEngines` names pnpm.
+      # A tag checkout is on no branch, which pnpm's git checks reject.
       - name: Publish package
-        working-directory: ${{ runner.temp }}/package
         run: |
           tag=latest
           if [[ "$GITHUB_REF_NAME" == *-* ]]; then
             tag=next
           fi
 
-          nix develop "$GITHUB_WORKSPACE" -c npm publish ./*.tgz \
+          nix develop -c pnpm publish \
+            --provenance \
+            --no-git-checks \
             --tag "$tag"
 
   release:
