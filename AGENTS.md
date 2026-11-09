@@ -4,7 +4,7 @@ This repository owns the `@hakula139/eslint-config` npm package, the ESLint flat
 
 ## Preset contract
 
-Each preset's entry module default-exports a config array, and `package.json`'s `exports` maps one subpath to each preset. Consumers compose them with `defineConfig`, so keep presets free of options or factories. Rules that only restate typescript-eslint's strict set or that format code stay out, since Prettier formats and the strict set already applies.
+Each preset's entry module default-exports a config array, and `package.json`'s `exports` maps one subpath to each preset. Consumers compose them with `defineConfig`, so keep presets free of options or factories. Rules that only restate typescript-eslint's strict and stylistic sets or that format code stay out, since Prettier formats and those sets already apply.
 
 Pass rule options only where they differ from the rule's defaults. An option object replaces the strict set's options for that rule and merges over the rule's own defaults, so an override must restate every strict value it keeps.
 

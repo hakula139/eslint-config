@@ -16,6 +16,7 @@ const cases = [
       'curly',
       'eqeqeq',
       'no-debugger',
+      'no-duplicate-imports',
       'no-throw-literal',
       'no-unused-vars',
       'no-var',
@@ -36,7 +37,9 @@ const cases = [
     preset: 'typescript',
     file: 'violations.ts',
     expected: [
+      '@typescript-eslint/consistent-type-definitions',
       '@typescript-eslint/consistent-type-imports',
+      '@typescript-eslint/naming-convention',
       '@typescript-eslint/no-non-null-assertion',
       '@typescript-eslint/no-unused-vars',
       '@typescript-eslint/only-throw-error',

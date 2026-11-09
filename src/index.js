@@ -14,6 +14,7 @@ export default defineConfig([
     rules: {
       'curly': 'error',
       'eqeqeq': 'error',
+      'no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
       'no-throw-literal': 'error',
       'no-unused-vars': ['error', unusedVarsOptions],
       'no-var': 'error',

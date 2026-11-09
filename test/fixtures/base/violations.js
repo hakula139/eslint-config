@@ -1,5 +1,6 @@
 import { writeFile, readFile } from 'node:fs/promises';
 import assert from 'node:assert';
+import { stat } from 'node:fs/promises';
 
 var count = 0;
 let total = 1;
@@ -11,4 +12,4 @@ if (count == total) throw 'mismatch';
 
 debugger;
 
-export { assert, readFile, record, writeFile };
+export { assert, readFile, record, stat, writeFile };

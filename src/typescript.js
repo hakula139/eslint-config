@@ -6,7 +6,7 @@ import { unusedVarsOptions } from './unused-vars.js';
 export default defineConfig({
   name: 'hakula139/typescript',
   files: ['**/*.{ts,tsx,mts,cts}'],
-  extends: [tseslint.configs.strictTypeChecked],
+  extends: [tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked],
   languageOptions: {
     parserOptions: {
       projectService: true,
@@ -14,6 +14,10 @@ export default defineConfig({
   },
   rules: {
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      { selector: 'typeLike', format: ['PascalCase'] },
+    ],
     '@typescript-eslint/no-unused-vars': ['error', unusedVarsOptions],
     '@typescript-eslint/require-await': 'off',
     '@typescript-eslint/restrict-template-expressions': [
