@@ -1,6 +1,8 @@
 import type { Shape } from './shape.js';
 import { unitCircle } from './shape.js';
 
+type _Unused = number;
+
 export async function area(shape: Shape, _scale: number): Promise<number> {
   switch (shape.kind) {
     case 'circle':

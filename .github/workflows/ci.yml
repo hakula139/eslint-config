@@ -48,8 +48,7 @@ jobs:
         run: |
           nix develop -c pnpm publish \
             --dry-run \
-            --no-git-checks \
-            --tag latest
+            --no-git-checks
 
   result:
     name: CI Result

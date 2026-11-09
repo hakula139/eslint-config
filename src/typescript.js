@@ -16,7 +16,7 @@ export default defineConfig({
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
-      { selector: 'typeLike', format: ['PascalCase'] },
+      { selector: 'typeLike', format: ['PascalCase'], leadingUnderscore: 'allow' },
     ],
     '@typescript-eslint/no-unused-vars': ['error', unusedVarsOptions],
     '@typescript-eslint/require-await': 'off',
@@ -25,7 +25,6 @@ export default defineConfig({
       {
         allowAny: false,
         allowBoolean: false,
-        allowNever: false,
         allowNullish: false,
         allowNumber: true,
         allowRegExp: false,

@@ -7,6 +7,7 @@ export function describe(shape: Shape, label: string | undefined, verbose: boole
   const fallback: Circle = unitCircle;
   let text = label ?? fallback.kind;
   text += label!;
+  text += label as string;
   text += ` verbose: ${verbose}`;
   switch (shape.kind) {
     case 'circle':

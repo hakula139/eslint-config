@@ -7,10 +7,15 @@ Shared ESLint flat configs for Hakula's JavaScript and TypeScript repositories. 
 
 ## Presets
 
-| Import                                | Files                   | Contents                                                                                                                                                     |
-| ------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@hakula139/eslint-config`            | Every file ESLint lints | `@eslint/js` recommended, strict equality, braces, `const`, no `var`, `no-throw-literal`, object shorthand, sorted and deduplicated imports                  |
-| `@hakula139/eslint-config/typescript` | `**/*.{ts,tsx,mts,cts}` | typescript-eslint's `strictTypeChecked` and `stylisticTypeChecked`, PascalCase type names, separate type imports, exhaustive `switch`, number-only templates |
+### `@hakula139/eslint-config`
+
+Lints every file ESLint lints with `@eslint/js` recommended, strict equality, braces on every block, `const`, no `var`, `no-throw-literal`, object shorthand, and sorted, deduplicated imports.
+
+### `@hakula139/eslint-config/typescript`
+
+Lints `**/*.{ts,tsx,mts,cts}` with typescript-eslint's `strictTypeChecked` and `stylisticTypeChecked`, PascalCase type names, separate type imports, exhaustive `switch`, and template literals that interpolate only strings and numbers.
+
+### Exceptions
 
 Both presets ignore an unused binding whose name starts with `_`, and a property destructured beside a rest element. The TypeScript preset turns off `@typescript-eslint/require-await`, so an `async` function can implement an interface without awaiting.
 

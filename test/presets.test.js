@@ -42,6 +42,7 @@ const cases = [
       '@typescript-eslint/naming-convention',
       '@typescript-eslint/no-non-null-assertion',
       '@typescript-eslint/no-unused-vars',
+      '@typescript-eslint/non-nullable-type-assertion-style',
       '@typescript-eslint/only-throw-error',
       '@typescript-eslint/restrict-template-expressions',
       '@typescript-eslint/switch-exhaustiveness-check',
