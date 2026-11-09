@@ -18,7 +18,7 @@ Bump the manifest without an npm-generated tag, then draft the notes:
 
 ```bash
 pnpm version X.Y.Z --no-git-tag-version
-nix run github:hakula139/devkit/v2#changelog -- vX.Y.Z
+nix run github:hakula139/devkit/v3#changelog -- vX.Y.Z
 ```
 
 ## Publish
@@ -31,6 +31,6 @@ The `tag.yml` workflow runs on the pushed tag:
 
 The trusted publisher for `@hakula139/eslint-config` allows publishing from `hakula139/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
 
-Run npm commands such as `npm trust` and `npm unpublish` outside the checkout, since npm refuses to run in a project whose `devEngines` names pnpm.
+Run npm-only commands such as `npm trust` and `npm unpublish` outside the checkout, as [devkit's pnpm guide](https://github.com/hakula139/devkit/blob/v3/docs/hooks.md#declare-pnpm) explains.
 
 [release-skill]: https://github.com/hakula139/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md

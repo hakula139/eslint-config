@@ -21,13 +21,10 @@ Add project spellings to `.cspell/words.txt`, one per line in alphabetical order
 ## Verification
 
 ```bash
-nix flake check --all-systems
-nix develop -c pnpm install --frozen-lockfile
-nix develop -c prek run eslint --all-files
+nix develop -c run-hooks
 nix develop -c pnpm test
+nix flake check --all-systems
 ```
-
-`nix flake check` runs the hermetic hooks, and ESLint runs as a dev-shell hook because it loads the project's `node_modules`.
 
 ## Releases
 

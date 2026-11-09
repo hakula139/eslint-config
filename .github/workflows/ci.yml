@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   nix:
-    uses: hakula139/devkit/.github/workflows/nix.yml@v2
+    uses: hakula139/devkit/.github/workflows/nix.yml@v3
     with:
       macos: false
     secrets:
@@ -30,16 +30,10 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up Nix
-        uses: hakula139/devkit/.github/actions/setup-nix@v2
+        uses: hakula139/devkit/.github/actions/setup-nix@v3
 
       - name: Install dependencies
         run: nix develop -c pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: |
-          nix develop -c prek run eslint \
-            --all-files \
-            --show-diff-on-failure
 
       - name: Test
         run: nix develop -c pnpm test
@@ -61,4 +55,4 @@ jobs:
       actions: read
     steps:
       - name: Check results
-        uses: hakula139/devkit/.github/actions/ci-result@v2
+        uses: hakula139/devkit/.github/actions/ci-result@v3

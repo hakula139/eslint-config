@@ -8,6 +8,5 @@ nixfmt
 nixos
 nixpkgs
 pkgs
-prek
 statix
 worktrees
