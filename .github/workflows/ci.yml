@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  nix:
+    uses: hakula139/devkit/.github/workflows/nix.yml@v3
+    with:
+      macos: false
+    secrets:
+      CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  node:
+    name: Node Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Nix
+        uses: hakula139/devkit/.github/actions/setup-nix@v3
+
+      - name: Install dependencies
+        run: nix develop -c pnpm install --frozen-lockfile
+
+      - name: Test
+        run: nix develop -c pnpm test
+
+      - name: Dry-run publish
+        run: |
+          nix develop -c pnpm publish \
+            --dry-run \
+            --no-git-checks
+
+  result:
+    name: CI Result
+    # A skipped required check passes, so the gate must run after failures too.
+    if: ${{ !cancelled() }}
+    needs: [nix, node]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+    steps:
+      - name: Check results
+        uses: hakula139/devkit/.github/actions/ci-result@v3

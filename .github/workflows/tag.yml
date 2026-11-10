@@ -1,0 +1,76 @@
+name: Tag Release
+
+on:
+  push:
+    tags: ['v[0-9]+.*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  tagged-ci:
+    name: Check Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Check the package version
+        run: |
+          version=$(jq -r .version package.json)
+          if [[ "v$version" != "$GITHUB_REF_NAME" ]]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match the package version $version"
+            exit 1
+          fi
+
+      - name: Wait for CI on the tagged commit
+        uses: hakula139/devkit/.github/actions/tagged-ci@v3
+
+  publish:
+    name: Publish npm Package
+    needs: tagged-ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Nix
+        uses: hakula139/devkit/.github/actions/setup-nix@v3
+
+      # A tag checkout is on no branch, which pnpm's git checks reject.
+      - name: Publish package
+        run: |
+          tag=latest
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            tag=next
+          fi
+
+          nix develop -c pnpm publish \
+            --provenance \
+            --no-git-checks \
+            --tag "$tag"
+
+  release:
+    name: Publish GitHub Release
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Publish release
+        uses: hakula139/devkit/.github/actions/publish-release@v3

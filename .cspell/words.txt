@@ -1,0 +1,12 @@
+cachix
+deadnix
+devkit
+direnv
+eslintconfig
+hakula
+nixfmt
+nixos
+nixpkgs
+pkgs
+statix
+worktrees
