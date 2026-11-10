@@ -1,6 +1,6 @@
 # Releasing
 
-Use the [release skill][release-skill] for preparation, notes curation, the release PR, approved tagging, and recovery. This document defines the eslint-config release contract.
+Use the [release skill](https://github.com/hakula139/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md) for preparation, notes curation, the release PR, approved tagging, and recovery. This document defines the eslint-config release contract.
 
 ## Choose the version
 
@@ -32,5 +32,3 @@ The `tag.yml` workflow runs on the pushed tag:
 The trusted publisher for `@hakula139/eslint-config` allows publishing from `hakula139/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
 
 Run npm-only commands such as `npm trust` and `npm unpublish` outside the checkout, as [devkit's pnpm guide](https://github.com/hakula139/devkit/blob/v3/docs/hooks.md#declare-pnpm) explains.
-
-[release-skill]: https://github.com/hakula139/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md
