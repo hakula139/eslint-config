@@ -167,10 +167,10 @@ importers:
   .:
     dependencies:
       '@eslint/js':
-        specifier: ^10.0.0
+        specifier: ^10.0.1
         version: 10.0.1(eslint@10.14.0)
       eslint-plugin-perfectionist:
-        specifier: ^5.0.0
+        specifier: ^5.13.0
         version: 5.13.0(eslint@10.14.0)(typescript@6.0.3)
     devDependencies:
       eslint:
