@@ -21,13 +21,13 @@ Both presets ignore an unused binding whose name starts with `_`, and a property
 
 ## Installation
 
-Install ESLint 10 or later and `globals` beside the base preset:
+Install ESLint 10 and `globals` beside the base preset:
 
 ```bash
 pnpm add -D @hakula139/eslint-config eslint globals
 ```
 
-The TypeScript preset also needs typescript-eslint 8.56 or later and TypeScript 6:
+The TypeScript preset also needs typescript-eslint 8.56 or later and a TypeScript version that release supports. typescript-eslint does not support TypeScript 7 yet, so the command installs TypeScript 6:
 
 ```bash
 pnpm add -D typescript@^6 typescript-eslint
