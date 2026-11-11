@@ -1,12 +1,7 @@
-cachix
-deadnix
+Cachix
 devkit
 direnv
-eslintconfig
-hakula
-nixfmt
-nixos
+Hakula
+NixOS
 nixpkgs
 pkgs
-statix
-worktrees
