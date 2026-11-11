@@ -82,7 +82,7 @@ Any release that can make a passing project fail its lint is major, so minor and
 
 ## Development
 
-The tests lint the fixtures under `test/fixtures/` with each preset and compare the reported rules. See [AGENTS.md](AGENTS.md) for contributor conventions.
+[`AGENTS.md`](AGENTS.md) is the contributor entry point for people and coding agents alike.
 
 ## License
 
