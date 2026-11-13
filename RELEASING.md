@@ -7,8 +7,8 @@ Use the [release skill](https://github.com/hakula139/plugins/blob/main/plugins/h
 Renovate's devkit preset merges minor and patch npm updates without review, so a release that can fail a consumer's lint must be major:
 
 - **Major:** Any change that can make a passing project fail, such as an added or stricter rule, a new error-level plugin config, a raised peer range, or a removed preset.
-- **Minor:** New presets and relaxed rules.
-- **Patch:** Fixes that report nothing new.
+- **Minor:** New presets and intentional policy relaxations.
+- **Patch:** Fixes that report nothing new, including corrections that remove false positives.
 
 typescript-eslint's `strictTypeChecked` and `stylisticTypeChecked` change in its minor releases, which reach a project through its own lockfile, so they are no version event here.
 
