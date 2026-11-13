@@ -50,6 +50,12 @@ const cases = [
     ],
   },
   {
+    name: 'typescript rejects default-allowed interpolation types',
+    preset: 'typescript',
+    file: 'template-error.ts',
+    expected: ['@typescript-eslint/restrict-template-expressions'],
+  },
+  {
     name: 'typescript accepts conforming code',
     preset: 'typescript',
     file: 'clean.ts',
@@ -68,5 +74,6 @@ for (const { name, preset, file, expected } of cases) {
 
     const reported = new Set(result.messages.map((message) => message.ruleId ?? message.message));
     assert.deepEqual([...reported].sort(), expected);
+    assert.ok(result.messages.every((message) => message.severity === 2));
   });
 }

@@ -23,6 +23,7 @@ export default defineConfig({
     '@typescript-eslint/restrict-template-expressions': [
       'error',
       {
+        allow: [],
         allowAny: false,
         allowBoolean: false,
         allowNullish: false,

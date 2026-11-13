@@ -24,6 +24,10 @@
   "files": [
     "src"
   ],
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint-plugin-perfectionist": "^5.13.0"
+  },
   "peerDependencies": {
     "eslint": "^10.0.0",
     "typescript-eslint": "^8.56.0"
@@ -32,10 +36,6 @@
     "typescript-eslint": {
       "optional": true
     }
-  },
-  "dependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint-plugin-perfectionist": "^5.13.0"
   },
   "devEngines": {
     "packageManager": {

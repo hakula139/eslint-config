@@ -76,6 +76,8 @@ export default defineConfig([
 ]);
 ```
 
+Each linted TypeScript file must belong to its discovered `tsconfig.json`. For files outside that project, the [project-service troubleshooting guide](https://typescript-eslint.io/troubleshooting/typed-linting/#project-service-issues) covers inclusion, ignores, a small default-project set, and disabling type-aware linting.
+
 ## Versioning
 
 Any release that can make a passing project fail its lint is major, so minor and patch updates can merge without review. [RELEASING.md](RELEASING.md) defines the policy.
