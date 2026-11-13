@@ -23,11 +23,7 @@ nix run github:hakula139/devkit/v3#changelog -- vX.Y.Z
 
 ## Publish
 
-The `tag.yml` workflow runs on the pushed tag:
-
-1. It checks that the tag matches `package.json`'s version and waits for CI to pass on the tagged commit.
-2. It runs `pnpm publish --provenance`, which authenticates through npm's GitHub OIDC trusted publisher and attaches a provenance attestation. Stable versions use `latest`, and prereleases use `next`.
-3. It publishes the tag's `CHANGELOG.md` section as the GitHub Release.
+Pushing the tag runs `tag.yml`, which publishes the npm package and the GitHub Release once CI passes on the tagged commit.
 
 The trusted publisher for `@hakula139/eslint-config` allows publishing from `hakula139/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
 

@@ -22,27 +22,14 @@ jobs:
       CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   node:
-    name: Node Check
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Set up Nix
-        uses: hakula139/devkit/.github/actions/setup-nix@v3
-
-      - name: Install dependencies
-        run: nix develop -c pnpm install --frozen-lockfile
-
-      - name: Test
-        run: nix develop -c pnpm test
-
-      - name: Dry-run publish
-        run: |
-          nix develop -c pnpm publish \
-            --dry-run \
-            --no-git-checks
+    permissions:
+      contents: read
+      id-token: write
+    uses: hakula139/devkit/.github/workflows/node.yml@v3
+    with:
+      coverage: false
+    secrets:
+      CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   result:
     name: CI Result
@@ -53,6 +40,7 @@ jobs:
     timeout-minutes: 5
     permissions:
       actions: read
+
     steps:
       - name: Check results
         uses: hakula139/devkit/.github/actions/ci-result@v3
