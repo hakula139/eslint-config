@@ -68,5 +68,6 @@ for (const { name, preset, file, expected } of cases) {
 
     const reported = new Set(result.messages.map((message) => message.ruleId ?? message.message));
     assert.deepEqual([...reported].sort(), expected);
+    assert.ok(result.messages.every((message) => message.severity === 2));
   });
 }
