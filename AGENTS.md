@@ -14,7 +14,7 @@ A rule change updates the violations fixture so the rule fires, and the clean fi
 
 ## Dependencies
 
-Plugins the presets load are `dependencies`. ESLint and typescript-eslint are peers, with typescript-eslint optional so JavaScript-only consumers do not install TypeScript.
+Plugins the presets load are `dependencies`. ESLint and typescript-eslint are peers, with typescript-eslint optional because the base preset does not load it. Perfectionist's dependency graph still brings in `@typescript-eslint/utils` and a TypeScript peer.
 
 ## Verification
 
