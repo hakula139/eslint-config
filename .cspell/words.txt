@@ -2,6 +2,7 @@ Cachix
 devkit
 direnv
 Hakula
+hakulab
 NixOS
 nixpkgs
 pkgs

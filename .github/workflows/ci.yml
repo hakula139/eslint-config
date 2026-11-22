@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   nix:
-    uses: hakula139/devkit/.github/workflows/nix.yml@v3
+    uses: hakulab/devkit/.github/workflows/nix.yml@v3
     with:
       macos: false
     secrets:
@@ -25,7 +25,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    uses: hakula139/devkit/.github/workflows/node.yml@v3
+    uses: hakulab/devkit/.github/workflows/node.yml@v3
     with:
       coverage: false
     secrets:
@@ -43,4 +43,4 @@ jobs:
 
     steps:
       - name: Check results
-        uses: hakula139/devkit/.github/actions/ci-result@v3
+        uses: hakulab/devkit/.github/actions/ci-result@v3

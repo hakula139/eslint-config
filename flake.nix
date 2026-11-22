@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     devkit = {
-      url = "github:hakula139/devkit/v3";
+      url = "github:hakulab/devkit/v3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
