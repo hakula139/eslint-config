@@ -1,6 +1,6 @@
 # Releasing
 
-Use the [release skill](https://github.com/hakula139/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md) for preparation, notes curation, the release PR, approved tagging, and recovery. This document defines the eslint-config release contract.
+Use the [release skill](https://github.com/hakulab/plugins/blob/main/plugins/hakula-workflow/skills/release/SKILL.md) for preparation, notes curation, the release PR, approved tagging, and recovery. This document defines the eslint-config release contract.
 
 ## Choose the version
 
