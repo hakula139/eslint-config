@@ -25,6 +25,6 @@ nix run github:hakulab/devkit/v3#changelog -- vX.Y.Z
 
 Pushing the tag runs `tag.yml`, which publishes the npm package and the GitHub Release once CI passes on the tagged commit.
 
-The trusted publisher for `@hakula139/eslint-config` allows publishing from `hakula139/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
+The trusted publisher for `@hakula139/eslint-config` allows publishing from `hakulab/eslint-config` through `tag.yml`. npm versions are immutable, so fix an already published version with a new one.
 
 Run npm-only commands such as `npm trust` and `npm unpublish` outside the checkout, as [devkit's pnpm guide](https://github.com/hakulab/devkit/blob/v3/docs/hooks.md#declare-pnpm) explains.

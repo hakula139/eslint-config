@@ -1,6 +1,6 @@
 # @hakula139/eslint-config
 
-[![CI](https://github.com/hakula139/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/hakula139/eslint-config/actions/workflows/ci.yml)
+[![CI](https://github.com/hakulab/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/hakulab/eslint-config/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Shared ESLint flat configs for Hakula's JavaScript and TypeScript repositories. Each preset is a config array to compose with ESLint's `defineConfig`, and Prettier owns formatting, so no preset sets a formatting rule.
